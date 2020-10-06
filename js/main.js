@@ -32,6 +32,11 @@ function passwordGenerate(){
 		errorState = true;
 	};
 	
+	if (numPassword < 1) {
+		errorDetails.innerHTML += "Number Error: Number is less than one<br>";
+		errorState = true;
+	}
+	
 	let splitText = textPassword.split('');
 	splitText.forEach(function(item){
 		if (isNaN(item) == false) {
