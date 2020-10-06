@@ -3,13 +3,11 @@ const generateButton = document.querySelector('.generate-button');
 function passwordGenerate(){
 	let textPassword = document.getElementById("text-password").value;
 	let numPassword = document.getElementById("number-password").value;
-	let textNum;
+	let textNum = 1;
 	let year = new Date().getFullYear();
 	
 	textPassword = textPassword.toLowerCase();
 	textPassword = textPassword.replace(/\s/g, '');
-	
-	console.log("|" + textPassword + "|")
 	
 	console.log(textPassword + numPassword);
 	
@@ -37,95 +35,98 @@ function passwordGenerate(){
 	splitText.forEach(function(item){
 		switch (item) {
 			case "a":
-				textNum = 21;
+				textNum = textNum * 21;
 				break;
 			case "b":
-				textNum = 35;
+				textNum = textNum * 35;
 				break;
 			case "c":
-				textNum = 33;
+				textNum = textNum * 33;
 				break;
 			case "d":
-				textNum = 23;
+				textNum = textNum * 23;
 				break;
 			case "e":
-				textNum = 13;
+				textNum = textNum * 13;
 				break;
 			case "f":
-				textNum = 24;
+				textNum = textNum * 24;
 				break;
 			case "g":
-				textNum = 25;
+				textNum = textNum * 25;
 				break;
 			case "h":
-				textNum = 26;
+				textNum = textNum * 26;
 				break;
 			case "i":
-				textNum = 18;
+				textNum = textNum * 18;
 				break;
 			case "j":
-				textNum = 27;
+				textNum = textNum * 27;
 				break;
 			case "k":
-				textNum = 28;
+				textNum = textNum * 28;
 				break;
 			case "l":
-				textNum = 29;
+				textNum = textNum * 29;
 				break;
 			case "m":
-				textNum = 37;
+				textNum = textNum * 37;
 				break;
 			case "n":
-				textNum = 36;
+				textNum = textNum * 36;
 				break;
 			case "o":
-				textNum = 19;
+				textNum = textNum * 19;
 				break;
 			case "p":
-				textNum = 10;
+				textNum = textNum * 10;
 				break;
 			case "q":
-				textNum = 11;
+				textNum = textNum * 11;
 				break;
 			case "r":
-				textNum = 14;
+				textNum = textNum * 14;
 				break;
 			case "s":
-				textNum = 22;
+				textNum = textNum * 22;
 				break;
 			case "t":
-				textNum = 15;
+				textNum = textNum * 15;
 				break;
 			case "u":
-				textNum = 17;
+				textNum = textNum * 17;
 				break;
 			case "v":
-				textNum = 34;
+				textNum = textNum * 34;
 				break;
 			case "w":
-				textNum = 12;
+				textNum = textNum * 12;
 				break;
 			case "x":
-				textNum = 32;
+				textNum = textNum * 32;
 				break;
 			case "y":
-				textNum = 16;
+				textNum = textNum * 16;
 				break;
 			case "z":
-				textNum = 31;
+				textNum = textNum * 31;
 				break;
 			default:
 				console.log("Text Error: Symbols detected");
 				return;
 				break;
 		}
+		console.log("Combined text number is " + textNum)
 	});
 	let parsedNumber = ((textNum * numPassword) * year);
 	parsedNumber = parsedNumber.toString();
 	let parsedArray = parsedNumber.split('');
 	
+	console.log ("Text Number (" + textNum + ") times Number Password (" + numPassword + ") plus 2020 = " + parsedNumber)
+	
 	let outputContainer = document.getElementById("generated-frequency");
-	outputContainer.textContent = parsedArray[0] + parsedArray[1] + parsedArray[2] + "." + parsedArray[0];
+	outputContainer.textContent = parsedArray[0] + parsedArray[1] + parsedArray[2] + "." + parsedArray[3];
 };
 
 generateButton.addEventListener("click", passwordGenerate);
