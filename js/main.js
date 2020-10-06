@@ -18,7 +18,7 @@ function passwordGenerate(){
 		return;
 	};
 	
-	if (numPassword > 99) {
+	if (numPassword > 999) {
 		console.log("Number Error: Number too high");
 		return;
 	};
