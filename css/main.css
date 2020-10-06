@@ -171,6 +171,8 @@ button:focus {
   margin: 0;
   font-size: 62vh;
   font-weight: 600;
+  line-height: 100%;
+  margin-top: 27px;
 }
 
 /* ==========================================================================

@@ -5,33 +5,37 @@ function passwordGenerate(){
 	let numPassword = document.getElementById("number-password").value;
 	let textNum = 1;
 	let year = new Date().getFullYear();
+	let errorDetails = document.getElementById("error-details")
+	let errorState = false;
 	
 	textPassword = textPassword.toLowerCase();
 	textPassword = textPassword.replace(/\s/g, '');
 	
 	if (isNaN(numPassword) == true){
-		console.log("Number Error: Not a number");
-		return;
+		errorDetails.innerHTML += "Number Error: Not a number<br>";
+		errorState = true;
 	};
 	
 	if (numPassword > 999) {
-		console.log("Number Error: Number too high");
-		return;
+		errorDetails.innerHTML += "Number Error: Number too high<br>";
+		errorState = true;
 	};
 	
 	if (numPassword === '') {
-		console.log("Number Error: Nothing inserted");
-		return;
+		errorDetails.innerHTML += "Number Error: Nothing inserted<br>";
+		errorState = true;
 	};
 	
 	if (textPassword === '') {
-		console.log("Text Error: Nothing inserted");
-		return;
+		errorDetails.innerHTML += "Text Error: Nothing inserted<br>";
+		errorState = true;
 	};
 	
 	let splitText = textPassword.split('');
 	splitText.forEach(function(item){
 		if (isNaN(item) == false) {
+			errorDetails.innerHTML += "Text Error: Numbers Detected<br>";
+			errorState = true;
 			return;
 		}
 		switch (item) {
@@ -114,11 +118,14 @@ function passwordGenerate(){
 				textNum = textNum * 31;
 				break;
 			default:
-				console.log("Text Error: Symbols detected");
+				errorDetails.innerHTML += "Text Error: Symbols Detected <br>";
+				errorState = true;
 				return;
-				break;
 		}
+		
 	});
+	
+	
 	let parsedNumber = ((textNum * numPassword) * year);
 	parsedNumber = parsedNumber.toString();
 	let parsedArray = parsedNumber.split('');
@@ -126,7 +133,16 @@ function passwordGenerate(){
 	if (parsedArray[1] === ".") {parsedArray.splice(1, 1)}
 	
 	let outputContainer = document.getElementById("generated-frequency");
+	
+	if (errorState === true){
+		outputContainer.textContent = "ERR"
+		return;
+	}
+	
+	errorDetails.innerHTML = "";
+	
 	outputContainer.textContent = parsedArray[0] + parsedArray[1] + parsedArray[2] + "." + parsedArray[3];
+	
 };
 
 generateButton.addEventListener("click", passwordGenerate);
