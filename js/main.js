@@ -120,6 +120,8 @@ function passwordGenerate(){
 	parsedNumber = parsedNumber.toString();
 	let parsedArray = parsedNumber.split('');
 	
+	if (parsedArray[1] === ".") {parsedArray.splice(1, 1)}
+	
 	let outputContainer = document.getElementById("generated-frequency");
 	outputContainer.textContent = parsedArray[0] + parsedArray[1] + parsedArray[2] + "." + parsedArray[3];
 };
