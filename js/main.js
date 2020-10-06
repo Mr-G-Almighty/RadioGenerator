@@ -9,8 +9,6 @@ function passwordGenerate(){
 	textPassword = textPassword.toLowerCase();
 	textPassword = textPassword.replace(/\s/g, '');
 	
-	console.log(textPassword + numPassword);
-	
 	if (isNaN(numPassword) == true){
 		console.log("Number Error: Not a number");
 		return;
@@ -117,13 +115,10 @@ function passwordGenerate(){
 				return;
 				break;
 		}
-		console.log("Combined text number is " + textNum)
 	});
 	let parsedNumber = ((textNum * numPassword) * year);
 	parsedNumber = parsedNumber.toString();
 	let parsedArray = parsedNumber.split('');
-	
-	console.log ("Text Number (" + textNum + ") times Number Password (" + numPassword + ") plus 2020 = " + parsedNumber)
 	
 	let outputContainer = document.getElementById("generated-frequency");
 	outputContainer.textContent = parsedArray[0] + parsedArray[1] + parsedArray[2] + "." + parsedArray[3];
