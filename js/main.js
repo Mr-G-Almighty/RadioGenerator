@@ -5,7 +5,8 @@ function passwordGenerate(){
 	let numPassword = document.getElementById("number-password").value;
 	let textNum = 1;
 	let year = new Date().getFullYear();
-	let errorDetails = document.getElementById("error-details")
+	let errorDetails = document.getElementById("error-details");
+	errorDetails.innerHTML = "";
 	let errorState = false;
 	
 	textPassword = textPassword.toLowerCase();
@@ -138,8 +139,6 @@ function passwordGenerate(){
 		outputContainer.textContent = "ERR"
 		return;
 	}
-	
-	errorDetails.innerHTML = "";
 	
 	outputContainer.textContent = parsedArray[0] + parsedArray[1] + parsedArray[2] + "." + parsedArray[3];
 	
