@@ -31,6 +31,9 @@ function passwordGenerate(){
 	
 	let splitText = textPassword.split('');
 	splitText.forEach(function(item){
+		if (isNaN(item) == false) {
+			return;
+		}
 		switch (item) {
 			case "a":
 				textNum = textNum * 21;
