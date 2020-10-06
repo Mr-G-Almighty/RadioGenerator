@@ -175,6 +175,32 @@ button:focus {
   margin-top: 27px;
 }
 
+@media only screen and (max-width: 1850px) {
+  #text-password, #number-password {
+    position: relative;
+    display: block;
+    width: 87vw;
+    margin-bottom: 12px;
+  }
+  
+  .generate-button {
+    margin: 45px 0 0 0;
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+  }
+  
+  #number-password {
+    text-align: left;
+  }
+  
+  #input-container {
+    width: 100%;
+  }
+  #generated-frequency {
+    font-size: 38vw;
+  }
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
